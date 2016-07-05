@@ -1,0 +1,11 @@
+table.table.table-bordered.table-striped
+  tr
+    th E-mail
+    th.actions Actions
+  - @users.each do |user|
+    tr  id=("user-#{user.id}" )
+      td
+        = user.email
+      td
+        - if current_user.id != user.id
+          = link_to 'Delete', user_path(user), :confirm => 'Are you sure?', :method => :delete

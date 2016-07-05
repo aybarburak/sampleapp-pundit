@@ -4,6 +4,7 @@ ruby '2.3.0'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'rails', '~> 5.0.0'
