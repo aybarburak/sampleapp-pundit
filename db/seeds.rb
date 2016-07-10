@@ -1,5 +1,5 @@
 # Create 15 normal Users
-15.times{
+150.times{
   User.create! email: Faker::Internet.safe_email, password: 'password', password_confirmation: 'password'
 }
 # Create admin
