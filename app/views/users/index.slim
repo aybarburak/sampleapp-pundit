@@ -1,26 +1,28 @@
-button.btn.btn-info.btn-lg data-target="#myModal" data-toggle="modal" type="button"  Open Modal
-table.table.table-bordered.table-striped
-  tr
-    th E-mail
-    th.actions Actions
-  - @users.each do |user|
-    tr  id=("user-#{user.id}" )
-      td
-        = user.email
-      td
-        - if current_user.id != user.id
-          = link_to 'Delete', user_path(user), :confirm => 'Are you sure?', :method => :delete
-= paginate @users
+.row style="text-align: right;"
+  button.btn.btn-info data-target="#myModal" data-toggle="modal" type="button"  Send Email
+.row
+  table.table.table-bordered.table-striped
+    tr
+      th E-mail
+      th.actions Actions
+    - @users.each do |user|
+      tr  id=("user-#{user.id}" )
+        td
+          = user.email
+        td
+          - if current_user.id != user.id
+            = link_to 'Delete', user_path(user), :confirm => 'Are you sure?', :method => :delete
+  = paginate @users
 
-#myModal.modal.fade role="dialog"
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button.close data-dismiss="modal" type="button"  &times;
-        h4.modal-title Modal Header
-      .modal-body
-        = simple_form_for :email_form, url: send_email_users_path, :method => :get do |f|
-          = f.input :content, as: :text
-          = f.submit 'Send', :class => 'btn btn-primary'
-      .modal-footer
-        button.btn.btn-default data-dismiss="modal" type="button"  Close
+  #myModal.modal.fade role="dialog"
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close data-dismiss="modal" type="button"  &times;
+          h4.modal-title Send Email
+        .modal-body
+          = simple_form_for :email_form, url: send_email_users_path, :method => :get do |f|
+            = f.input :content, as: :text
+            = f.submit 'Send', :class => 'btn btn-primary'
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" type="button"  Close
