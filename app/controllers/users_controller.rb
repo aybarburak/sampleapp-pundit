@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def send_email
     content = params[:email_form][:content]
 
-    SystemMailer.send_email(User.all, content).deliver_now
+    SystemMailer.send_email(User.all.where.not(id: current_user.id, rank: 1), content).deliver_now
 
     redirect_to users_path
   end
