@@ -21,8 +21,9 @@
           button.close data-dismiss="modal" type="button"  &times;
           h4.modal-title Send Email
         .modal-body
-          = simple_form_for :email_form, url: send_email_users_path, :method => :get do |f|
+          = simple_form_for :email_form, url: send_email_users_path do |f|
             = f.input :content, as: :text
+            = f.file_field :file
             = f.submit 'Send', :class => 'btn btn-primary'
         .modal-footer
           button.btn.btn-default data-dismiss="modal" type="button"  Close

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :users, only: [:index, :destroy] do
     collection do
-      get :send_email
+      post :send_email
     end
   end
 end
