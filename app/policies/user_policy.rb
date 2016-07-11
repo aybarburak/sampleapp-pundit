@@ -9,9 +9,4 @@ class UserPolicy
   def destroy?
     @current_user.rank == 1
   end
-
-  def index?
-    @current_user.rank == 1 or  @current_user.rank == 0
-  end
-
 end
